@@ -192,6 +192,14 @@ for chunk in llm.stream(messages):
     if chunk.content and chunk.content[0].get('type') == 'text':
         print(chunk.content[0]['text'],end='',flush=True)
 
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from termcolor import colored
+
+raw_data = pd.read_csv('result_lab_3.csv')
+results = raw_data[['summary','reason','predict_label']].rename(columns={'predict_label':'category'})
+
 statistic_label = results.pivot_table(index='category',aggfunc='count')
 statistic_label[['summary']]
 
