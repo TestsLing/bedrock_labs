@@ -11,7 +11,7 @@ results = []
 
 available_models = bedrock.list_foundation_models()
 for model in available_models['modelSummaries']:
-    if '`Amazon`' in model['providerName'] and 'EMBEDDING' in model['outputModalities']: 
+    if 'Amazon' in model['providerName'] and 'EMBEDDING' in model['outputModalities']: 
         results.append({
             'Model Name': model['modelName'],
             'Model ID': model['modelId'],  # Add Model ID column
